@@ -1,0 +1,10 @@
+import { createApp } from './app.mjs';
+import { createProvider } from './provider.mjs';
+import { createSpeechProvider } from './speech.mjs';
+import { createRecognitionProvider } from './stt.mjs';
+import { createRealtimeProvider } from './realtime.mjs';
+const provider = createProvider();
+const port = Number(process.env.PORT || 3001);
+const server = createApp(provider, { speech: createSpeechProvider(), recognition: createRecognitionProvider(), realtime: createRealtimeProvider() });
+server.listen(port, '127.0.0.1', () => console.log(`Flutter Interview Lab: http://127.0.0.1:${port} • ${provider.mode}`));
+server.on('error', error => { console.error(`Сервер не запущен: ${error.code}`); process.exitCode = 1; });

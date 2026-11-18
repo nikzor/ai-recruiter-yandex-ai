@@ -1,0 +1,7 @@
+syntax = "proto3";
+package speechkit.stt.v3;
+import "stt.proto";
+// Streaming-only entry point; RPC path and messages match Yandex Cloud's stt_service.proto.
+service Recognizer {
+  rpc RecognizeStreaming(stream StreamingRequest) returns (stream StreamingResponse);
+}
