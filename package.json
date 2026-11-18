@@ -1,0 +1,30 @@
+{
+  "name": "flutter-interview-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "vite build",
+    "start": "node --env-file-if-exists=.env server/index.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm test && npm run build",
+    "smoke:yandex": "node --env-file-if-exists=.env scripts/smoke-yandex.mjs",
+    "smoke:tts": "node --env-file-if-exists=.env scripts/smoke-tts.mjs",
+    "smoke:stt": "node --env-file-if-exists=.env scripts/smoke-stt.mjs",
+    "smoke:realtime": "node --env-file-if-exists=.env scripts/smoke-realtime.mjs"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.7",
+    "@grpc/proto-loader": "^0.8.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "ws": "^8.23.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}
